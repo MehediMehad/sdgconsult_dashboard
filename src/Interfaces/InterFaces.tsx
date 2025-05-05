@@ -16,3 +16,13 @@ export interface TBuilding {
     createdAt: string
     updatedAt: string
   }
+  
+export interface TAdminBuilding {
+    id: string
+    name: string
+    qrCode: number
+    totalUsers: number
+    totalGroups: number
+    totalPaidUsers: number
+    totalUnpaidUsers: number
+  }

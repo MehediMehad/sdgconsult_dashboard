@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
+import Link from 'next/link';
 import Loader from "../Loader/Loader";
 import { useUserStatusUpdateMutation } from "@/Redux/Api/userApi";
 import { UserInterFace } from "@/Interfaces/InterFaces";
@@ -38,7 +39,8 @@ const AdminTable = ({
             <th className="px-4 py-2 border">User Email</th>
             <th className="px-4 py-2 border">Role</th>
             <th className="px-4 py-2 border">Status</th>
-            <th className="px-4 py-2 border">Action</th>
+            <th className="px-4 py-2 border w-[100px]">Action</th>
+            <th className="px-4 py-2 border w-[100px]">Details</th>
           </tr>
         </thead>
         <tbody>
@@ -88,6 +90,15 @@ const AdminTable = ({
                       Unblock
                     </button>
                   )}
+                </td>
+                <td className="px-4 text-nowrap py-2">
+                  
+
+                    <Link href={`/admin/${item.id}`}
+                      className="px-4 py-1 hover:scale-105 transition-transform font-semibold rounded-lg bg-white shadow-md text-base"
+                    >
+                      View
+                    </Link>
                 </td>
               </motion.tr>
             ))

@@ -15,7 +15,6 @@ const userApi = baseApi.injectEndpoints({
         }),
         allUsers: build.query({
             query: ({ page, limit }) => ({
-                // url: `/user/normal-user-all?page=${page}&limit=${limit}&email=${email}`,
                 url: `/users?search=USER&limit=${limit}&page=${page}`,
                 method: "GET"
             }),
@@ -23,8 +22,14 @@ const userApi = baseApi.injectEndpoints({
         }),
         allAdmins: build.query({
             query: ({ page, limit }) => ({
-                // url: `/user/normal-user-all?page=${page}&limit=${limit}&email=${email}`,
                 url: `/users?search=ADMIN&limit=${limit}&page=${page}`,
+                method: "GET"
+            }),
+            providesTags: ["allUsers"]
+        }),
+        getSingleAdminDetails: build.query({
+            query: ({ id }) => ({
+                url: `/buildings/admin-details/${id}`, // Ensure this endpoint is correct
                 method: "GET"
             }),
             providesTags: ["allUsers"]
@@ -50,4 +55,4 @@ const userApi = baseApi.injectEndpoints({
 })
 
 
-export const { useLoginUserMutation, useAllCreatorsQuery, useAllUsersQuery, useUserStatusUpdateMutation, useAllAdminsQuery } = userApi
+export const { useLoginUserMutation, useAllCreatorsQuery, useAllUsersQuery, useUserStatusUpdateMutation, useAllAdminsQuery, useGetSingleAdminDetailsQuery } = userApi
