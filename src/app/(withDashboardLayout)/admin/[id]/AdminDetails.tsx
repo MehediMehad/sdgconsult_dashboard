@@ -5,6 +5,7 @@ import { useGetSingleAdminDetailsQuery } from "@/Redux/Api/userApi";
 import Loader from "@/components/Loader/Loader";
 
 const AdminDetails = ({ id }: { id: string }) => {
+  console.log(id);
   const { data: userData, isLoading, isError } = useGetSingleAdminDetailsQuery({id});
   
 
