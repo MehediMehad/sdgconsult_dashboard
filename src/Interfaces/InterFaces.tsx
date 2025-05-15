@@ -5,6 +5,8 @@ export interface UserInterFace {
     role: string
     status: string
     id: string
+    phone: string
+    licenseNumber: string
 }
 export interface TBuilding {
     id: string
